@@ -1,0 +1,22 @@
+﻿<Window x:Class="CancerApp.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CancerApp"
+        mc:Ignorable="d"
+        Title="DataWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="wndData" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rok" Binding="{Binding Path=Year}" Width="*"/>
+                <DataGridTextColumn Header="Wojewodztwo" Binding="{Binding Path=Region}" Width="*"/>
+                <DataGridTextColumn Header="Plec" Binding="{Binding Path=Gender}" Width="*"/>
+                <DataGridTextColumn Header="ICD10" Binding="{Binding Path=Cancer}" Width="*"/>
+                <DataGridTextColumn Header="Wiek" Binding="{Binding Path=Age}" Width="*"/>
+                <DataGridTextColumn Header="Liczba" Binding="{Binding Path=Number}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
