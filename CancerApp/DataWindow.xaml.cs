@@ -25,8 +25,8 @@ namespace CancerApp
         {
             InitializeComponent();
 
-            wndData.ItemsSource = Singleton.Instance.ListOfData;
- 
+           wndData.ItemsSource = Singleton.Instance.ListOfData;
+         
         }
     }
 }

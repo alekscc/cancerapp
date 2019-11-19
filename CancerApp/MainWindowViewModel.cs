@@ -35,7 +35,7 @@ namespace CancerApp
                 wnd = new StatisticsWindow();
             }
 
-            List<Data> query = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(p.ToString())).ToList();
+            //List<Data> query = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(p.ToString())).ToList();
             
 
             wnd.AddDataFilter(p.ToString());

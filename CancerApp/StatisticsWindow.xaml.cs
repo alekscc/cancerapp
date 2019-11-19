@@ -34,6 +34,7 @@ namespace CancerApp
         {
             InitializeComponent();
             DataFilters = new List<string>();
+
         }
 
         public void AddDataFilter(string filter)
@@ -43,7 +44,7 @@ namespace CancerApp
         }
         public void UpdateData()
         {
-            //listOfData = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).SkipWhile(z=>z ).FirstOrDefault() ).ToList();
+              
             listOfData = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList();
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = listOfData;

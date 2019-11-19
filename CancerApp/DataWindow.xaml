@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CancerApp"
         mc:Ignorable="d"
-        Title="DataWindow" Height="450" Width="800">
+        Title="DataWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="wndData" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" AutoGenerateColumns="False">
+        <DataGrid x:Name="wndData" HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rok" Binding="{Binding Path=Year}" Width="*"/>
                 <DataGridTextColumn Header="Wojewodztwo" Binding="{Binding Path=Region}" Width="*"/>

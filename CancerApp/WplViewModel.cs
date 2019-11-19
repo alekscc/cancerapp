@@ -27,10 +27,10 @@ namespace CancerApp
 
         private static void DoStuff(object p)
         {
-            MessageBox.Show("Responding to left mouse button click event..." + p.ToString());
-            List<Data> query = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(p.ToString())).ToList();
-            StatisticsWindow wnd = new StatisticsWindow(query);
-            wnd.Show();
+            //MessageBox.Show("Responding to left mouse button click event..." + p.ToString());
+            //List<Data> query = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(p.ToString())).ToList();
+            //StatisticsWindow wnd = new StatisticsWindow(query);
+            //wnd.Show();
         }
     }
 }
