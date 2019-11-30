@@ -38,7 +38,7 @@ namespace CancerApp
             //List<Data> query = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(p.ToString())).ToList();
             
 
-            wnd.AddDataFilter(p.ToString());
+            wnd.AddDataFilter(Utils.MapRegionName(p.ToString()));
             wnd.UpdateData();
             wnd.Show();
            

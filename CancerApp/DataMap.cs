@@ -13,10 +13,11 @@ namespace CancerApp
         {
             Map(m => m.Year).Index(0);
             Map(m => m.Region).Index(1);
-            Map(m => m.Gender).Index(2);
+            Map(m => m.Gender ).Index(2);
             Map(m => m.Cancer).Index(3);
             Map(m => m.Age).Index(4);
             Map(m => m.Number).Index(5);
         }
+
     }
 }

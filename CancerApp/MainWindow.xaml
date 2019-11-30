@@ -6,7 +6,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:CancerApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="582" Width="641">
+        Title="MainWindow" Height="582" Width="893" ResizeMode="NoResize" Background="White">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
@@ -43,7 +43,7 @@
     </Window.Resources>
 
     <Grid>
-        <Viewbox HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,0">
+        <Viewbox HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,0">
 
             <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg59" Width="1000" Height="948">
                 <Canvas.Resources></Canvas.Resources>
@@ -169,7 +169,42 @@
             </Canvas>
         </Viewbox>
 
+
+        <ComboBox x:Name="comboBoxYearTo" HorizontalAlignment="Left" Margin="743,45,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.396,0.682" SelectionChanged="comboBoxYearTo_SelectionChanged"/>
+        <ComboBox x:Name="comboBoxYearFrom" HorizontalAlignment="Left" Margin="588,45,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxYearFrom_SelectionChanged"/>
+        <Button x:Name="btnFilter" Content="Filtruj" HorizontalAlignment="Left" Margin="652,462,0,0" VerticalAlignment="Top" Width="150" Background="#FFDDDDDD" Click="btnFilter_Click"/>
+        <ComboBox x:Name="comboBoxGender" HorizontalAlignment="Left" Margin="743,84,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxGender_SelectionChanged" RenderTransformOrigin="0.503,-1.576"/>
+        <ListBox x:Name="listBoxCancer" HorizontalAlignment="Left" Height="100" Margin="652,142,0,0" VerticalAlignment="Top" Width="150" >
+            <ListBox.ItemTemplate>
+                <HierarchicalDataTemplate>
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
+                </HierarchicalDataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnSelectAllCancers" Content="Zaznacz/Odznacz wszystko" HorizontalAlignment="Left" Margin="652,247,0,0" VerticalAlignment="Top" Width="150" Click="btnSelectAllCancers_Click"/>
+        <ListBox x:Name="listBoxAge" HorizontalAlignment="Left" Height="100" Margin="652,300,0,0" VerticalAlignment="Top" Width="150">
+            <ListBox.ItemTemplate>
+                <HierarchicalDataTemplate>
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                </HierarchicalDataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <Button x:Name="btnSelectAllAges" Content="Zaznacz/Odznacz wszystko" HorizontalAlignment="Left" Margin="652,405,0,0" VerticalAlignment="Top" Width="150" Click="btnSelectAllAges_Click"/>
+        <Label x:Name="labelCancer" Content="Lokalizacja nowotworu:" HorizontalAlignment="Left" Margin="652,116,0,0" VerticalAlignment="Top" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="labelAgeGroups" Content="Grupy wiekowe:" HorizontalAlignment="Left" Margin="652,274,0,0" VerticalAlignment="Top" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="labelGender" Content="Płeć:" HorizontalAlignment="Left" Margin="588,80,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label x:Name="labelYearFrom" Content="Rok od:" HorizontalAlignment="Left" Margin="588,19,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.289,-0.013" Width="120"/>
+        <Label x:Name="labelYearTo" Content="Rok do:" HorizontalAlignment="Left" Margin="743,19,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLoadAllData" Content="Otwórz wszystko" HorizontalAlignment="Left" Margin="652,501,0,0" VerticalAlignment="Top" Width="150" Click="btnLoadAllData_Click"/>
+
+
+
+
     </Grid>
+
+
 
 
 

@@ -70,6 +70,7 @@
     <Compile Include="StatisticsWindow.xaml.cs">
       <DependentUpon>StatisticsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="wpl.xaml.cs">
       <DependentUpon>wpl.xaml</DependentUpon>
     </Compile>

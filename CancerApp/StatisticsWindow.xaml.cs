@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace CancerApp
     /// </summary>
     public partial class StatisticsWindow : Window
     {
-        private List<Data> listOfData;
+        private List<Data> dataList;
+
 
         public List<string> DataFilters { get; private set; }
 
@@ -44,10 +46,16 @@ namespace CancerApp
         }
         public void UpdateData()
         {
-              
-            listOfData = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList();
+            Title = "";
+            foreach (string filterName in DataFilters)
+            {
+                Title += filterName + ", ";
+            }
+
+            dataList = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList();
+            //MessageBox.Show("Found record: " + dataList.Count + " data filter [0]:" + DataFilters[0]);
             dataGrid.ItemsSource = null;
-            dataGrid.ItemsSource = listOfData;
+            dataGrid.ItemsSource = dataList;
         }
     }
 }
