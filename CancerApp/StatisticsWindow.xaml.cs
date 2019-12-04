@@ -20,11 +20,7 @@ namespace CancerApp
     /// </summary>
     public partial class StatisticsWindow : Window
     {
-
-       
-
         private List<Data> dataList;
-
 
         public List<string> DataFilters { get; private set; }
 
@@ -32,18 +28,17 @@ namespace CancerApp
 
         public StatisticsWindow(List<Data> data)
         {
-            viewModel = new StatisticsWindowViewModel();
-            DataContext = viewModel;
+            
             
             InitializeComponent();
             DataFilters = new List<string>();
-
-            //oxyPlotModel = new OxyPlotModel();
-            //this.DataContext = oxyPlotModel;
         
         }
         public StatisticsWindow()
         {
+            viewModel = new StatisticsWindowViewModel();
+            DataContext = viewModel;
+
             InitializeComponent();
             DataFilters = new List<string>();
 
@@ -62,10 +57,11 @@ namespace CancerApp
                 Title += filterName + ", ";
             }
 
-            dataList = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList();
+            viewModel.DataList = Singleton.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList();
             //MessageBox.Show("Found record: " + dataList.Count + " data filter [0]:" + DataFilters[0]);
             dataGrid.ItemsSource = null;
-            dataGrid.ItemsSource = dataList;
+            dataGrid.ItemsSource = viewModel.DataList;
+            
         }
     }
 }

@@ -12,6 +12,9 @@ namespace CancerApp
 {
     class StatisticsWindowViewModel : INotifyPropertyChanged
     {
+        public List<Data> DataList { get; set; } // dane
+
+
         private PlotModel plotModel;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,7 +58,8 @@ namespace CancerApp
 
         public StatisticsWindowViewModel()
         {
-            
+            DataList = new List<Data>();
+
             PlotModel = new PlotModel();
             SetUpModel();
         }
