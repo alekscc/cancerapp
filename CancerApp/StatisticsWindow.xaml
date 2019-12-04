@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CancerApp"
         mc:Ignorable="d"
-        Title="StatisticsWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="StatisticsWindow" Height="450" Width="800" ResizeMode="NoResize"
+        xmlns:oxy="http://oxyplot.org/wpf">
+    <Window.DataContext>
+        <local:StatisticsWindowViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <TabItem Header="Dane">
@@ -23,7 +28,11 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Wykres">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <oxy:PlotView x:Name="Plot1" Model="{Binding PlotModel}" Margin="10" Grid.Row="1">
+                        
+                    </oxy:PlotView>
+                </Grid>
             </TabItem>
         </TabControl>
 

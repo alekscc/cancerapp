@@ -20,17 +20,27 @@ namespace CancerApp
     /// </summary>
     public partial class StatisticsWindow : Window
     {
+
+       
+
         private List<Data> dataList;
 
 
         public List<string> DataFilters { get; private set; }
 
+        private StatisticsWindowViewModel viewModel;
+
         public StatisticsWindow(List<Data> data)
         {
+            viewModel = new StatisticsWindowViewModel();
+            DataContext = viewModel;
+            
             InitializeComponent();
             DataFilters = new List<string>();
 
-
+            //oxyPlotModel = new OxyPlotModel();
+            //this.DataContext = oxyPlotModel;
+        
         }
         public StatisticsWindow()
         {
