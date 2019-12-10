@@ -144,12 +144,20 @@ namespace CancerApp
             {
                 float sum = tempMap.Where(x => x.Key.Equals(p.Name)).FirstOrDefault().Value;
                 float perc = (sum / max);
-                
-                p.Fill = new SolidColorBrush(new Color() { ScR = perc, ScG = perc, ScB = perc,  ScA =1f } );
+
+               // perc = (perc != 0f) ? perc : 0.05f;
+                perc = (float)Math.Pow(1f - perc, 10);
+
+                p.Fill = new SolidColorBrush(new Color() { ScR = 0.9f, ScG = perc, ScB = perc, ScA = 1f });
+
+                //p.Fill = new SolidColorBrush(new Color() { ScR = perc, ScG = perc, ScB = 1f,  ScA =1f } );
             }
 
         }
-       
+        private float Lerp(float firstFloat, float secondFloat, float by)
+        {
+            return firstFloat * (1 - by) + secondFloat * by;
+        }
         private static void getLogicalChildCollection<T>(DependencyObject parent, List<T> logicalCollection) where T : DependencyObject
         {
             var children = LogicalTreeHelper.GetChildren(parent);

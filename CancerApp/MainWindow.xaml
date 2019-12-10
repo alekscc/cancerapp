@@ -18,7 +18,7 @@
                     <BeginStoryboard x:Name="ColorChangeStoryBoard">
                         <Storyboard>
                             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="Aquamarine">
+                                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="Coral">
                                     <EasingColorKeyFrame.EasingFunction>
                                         <ElasticEase EasingMode="EaseOut"/>
                                     </EasingColorKeyFrame.EasingFunction>

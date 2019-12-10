@@ -52,12 +52,11 @@ namespace CancerApp
 
             var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok"};
         
-            
-
             var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title="Liczba"};
 
             var collection = DataList.Select(x => x.Year).Distinct().ToList();
 
+           
 
             foreach (var item in collection)
             {
@@ -65,6 +64,8 @@ namespace CancerApp
                 {
                     StrokeThickness = 2,
                     MarkerSize = 10,
+                    LineStyle = LineStyle.Solid,
+                    LineJoin = LineJoin.Round,
                     MarkerType = MarkerType.Circle,
                     MarkerStroke = OxyColor.Parse("255,255,125,255"),
                     
