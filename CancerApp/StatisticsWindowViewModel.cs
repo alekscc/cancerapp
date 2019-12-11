@@ -67,43 +67,66 @@ namespace CancerApp
 
             //var collection = DataList.Select(x => x.Year).Distinct().ToList();
         }
-        private void SetUpModel()
+        private void SetupPlotModel2()
         {
-            PlotModel.LegendTitle = "Legend";
+            PlotModel2.Series.Clear();
+            PlotModel2.Axes.Clear();
+
+
+
+            PlotModel2.LegendTitle = "Legenda";
+            PlotModel2.LegendOrientation = LegendOrientation.Horizontal;
+            PlotModel2.LegendPosition = LegendPosition.TopRight;
+            PlotModel2.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
+            PlotModel2.LegendBorder = OxyColors.Black;
+
+            var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title = "Liczba zachorowań", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+
+            var collectionYear = DataList.Select(x => x.Year).Distinct().ToList();
+            var collectionAge = DataList.Select(x => x.Age).Distinct().ToList();
+            var lineSeriesAges = new LineSeries[collectionAge.Count];
+
+
+            foreach (var age in collectionAge)
+            {
+                var series = new LineSeries()
+                {
+                    Title = age,
+                };
+
+                foreach (var year in collectionYear)
+                {
+                    series.Points.Add(new DataPoint(LinearAxis.ToDouble(year), LinearAxis.ToDouble(DataList.Where(x => x.Year.Equals(year) && x.Age.Equals(age)).Select(x => x.Number).Sum())));
+
+                }
+
+                //plotModel2.Axes.Add(valueAxis);
+                //plotModel2.Axes.Add(yearAxis);
+                PlotModel2.Series.Add(series);
+
+            }
+
+            PlotModel2.Axes.Add(yearAxis);
+            PlotModel2.Axes.Add(valueAxis);
+        }
+        private void SetupPlotModel()
+        {
+            PlotModel.Series.Clear();
+            PlotModel.Axes.Clear();
+
+            
+
+            PlotModel.LegendTitle = "Legenda";
             PlotModel.LegendOrientation = LegendOrientation.Horizontal;
             PlotModel.LegendPosition = LegendPosition.TopRight;
             PlotModel.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
             PlotModel.LegendBorder = OxyColors.Black;
-            
-            // AxisPosition.Bottom, "Date", "dd/MM/yy HH:mm"
-            //var dateAxis = new DateTimeAxis() { MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80 };
-            //dateAxis.Title = "Rok";
 
-            var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok", MajorGridlineStyle=LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot};
-        
-            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title="Liczba", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title = "Liczba zachorowań", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
 
-            var collection = DataList.Select(x => x.Year).Distinct().ToList();
-
-
-
-            //foreach (var item in collection)
-            //{
-            //    var lineSeries = new LineSeries
-            //    {
-            //        StrokeThickness = 2,
-            //        MarkerSize = 1,
-            //        LineStyle = LineStyle.Solid,
-            //        LineJoin = LineJoin.Round,
-            //        MarkerType = MarkerType.Circle,
-            //        MarkerStroke = OxyColor.Parse("255,255,125,255"),
-
-            //    };
-
-            //    //collection.ForEach(x => lineSeries.Points.Add(new DataPoint(LinearAxis.ToDouble(item), LinearAxis.ToDouble(25))));
-            //    lineSeries.Points.Add(new DataPoint(item, DataList.Where(x => x.Year.Equals(item)).Select(x => x.Number).Sum()));
-            //    plotModel.Series.Add(lineSeries);
-            //}
+            var collectionYear = DataList.Select(x => x.Year).Distinct().ToList();
 
             var lineSeriesYearNumber = new LineSeries
             {
@@ -111,48 +134,83 @@ namespace CancerApp
                 MarkerSize = 1,
                 Color = OxyColors.Red,
                 RenderInLegend = true,
+                Title="Ilość zachorowań"
             };
 
-            foreach (var item in collection)
+            foreach (var item in collectionYear)
             {
                 lineSeriesYearNumber.Points.Add(new DataPoint(LinearAxis.ToDouble(item), DataList.Where(x => x.Year.Equals(item)).Select(x => x.Number).Sum()));
             }
 
-
-            
             PlotModel.Series.Add(lineSeriesYearNumber);
             //dateAxis.StringFormat = "dd/MM/yy HH:mm";
 
-            
+
             PlotModel.Axes.Add(yearAxis);
             PlotModel.Axes.Add(valueAxis);
 
-
-
-
-            // PLOT MODEL 2
-
-            var collectionAge = DataList.Select(x => x.Age).Distinct().ToList();
-            var lineSeriesAges = new LineSeries[collectionAge.Count];
-
-
-            foreach (var item in collectionAge)
-            {
-                var series = new LineSeries();
-
-                foreach (var item2 in collection)
-                {
-                    series.Points.Add(new DataPoint(LinearAxis.ToDouble(item2), LinearAxis.ToDouble(DataList.Where(x => x.Year.Equals(item2) && x.Age.Equals(item)).Select(x => x.Number).Sum())));
-
-                }
-
-                //plotModel2.Axes.Add(valueAxis);
-                //plotModel2.Axes.Add(yearAxis);
-                PlotModel2.Series.Add(series);
-            }
-
-
         }
+        //private void SetupModel()
+        //{
+           
+            
+        //    // AxisPosition.Bottom, "Date", "dd/MM/yy HH:mm"
+        //    //var dateAxis = new DateTimeAxis() { MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80 };
+        //    //dateAxis.Title = "Rok";
+
+           
+
+
+
+        //    //foreach (var item in collection)
+        //    //{
+        //    //    var lineSeries = new LineSeries
+        //    //    {
+        //    //        StrokeThickness = 2,
+        //    //        MarkerSize = 1,
+        //    //        LineStyle = LineStyle.Solid,
+        //    //        LineJoin = LineJoin.Round,
+        //    //        MarkerType = MarkerType.Circle,
+        //    //        MarkerStroke = OxyColor.Parse("255,255,125,255"),
+
+        //    //    };
+
+        //    //    //collection.ForEach(x => lineSeries.Points.Add(new DataPoint(LinearAxis.ToDouble(item), LinearAxis.ToDouble(25))));
+        //    //    lineSeries.Points.Add(new DataPoint(item, DataList.Where(x => x.Year.Equals(item)).Select(x => x.Number).Sum()));
+        //    //    plotModel.Series.Add(lineSeries);
+        //    //}
+
+          
+
+            
+           
+
+
+
+
+        //    // PLOT MODEL 2
+
+        //    var collectionAge = DataList.Select(x => x.Age).Distinct().ToList();
+        //    var lineSeriesAges = new LineSeries[collectionAge.Count];
+
+
+        //    foreach (var item in collectionAge)
+        //    {
+        //        var series = new LineSeries();
+
+        //        foreach (var item2 in collection)
+        //        {
+        //            series.Points.Add(new DataPoint(LinearAxis.ToDouble(item2), LinearAxis.ToDouble(DataList.Where(x => x.Year.Equals(item2) && x.Age.Equals(item)).Select(x => x.Number).Sum())));
+
+        //        }
+
+        //        //plotModel2.Axes.Add(valueAxis);
+        //        //plotModel2.Axes.Add(yearAxis);
+        //        PlotModel2.Series.Add(series);
+        //    }
+
+
+        //}
 
 
         public StatisticsWindowViewModel()
@@ -164,10 +222,13 @@ namespace CancerApp
             //SetUpModel();
 
         }
-        public void SetUpModel2(List<Data> data)
+        public void SetupModel(List<Data> data)
         {
             DataList = data;
-            SetUpModel();
+
+            SetupPlotModel();
+            SetupPlotModel2();
+           
         }
     }
 }
