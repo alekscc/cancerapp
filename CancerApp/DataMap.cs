@@ -11,6 +11,7 @@ namespace CancerApp
     {
         public DataMap()
         {
+
             Map(m => m.Year).Index(0);
             Map(m => m.Region).Index(1);
             Map(m => m.Gender ).Index(2);

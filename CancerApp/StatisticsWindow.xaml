@@ -25,13 +25,28 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Wykres">
+            <TabItem Header="Wykres 1">
                 <Grid Background="#FFE5E5E5">
                     <oxy:PlotView x:Name="Plot1" Model="{Binding PlotModel}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
                         
                     </oxy:PlotView>
                 </Grid>
             </TabItem>
+            <TabItem Header="Wykres 2">
+                <Grid Background="#FFE5E5E5">
+                    <oxy:PlotView x:Name="Plot2" Model="{Binding PlotModel2}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+
+                    </oxy:PlotView>
+                </Grid>
+            </TabItem>
+
+        <TabItem Header="Wykres 3">
+            <Grid Background="#FFE5E5E5">
+                <oxy:PlotView x:Name="Plot3" Model="{Binding PlotModel3}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+
+                </oxy:PlotView>
+            </Grid>
+        </TabItem>
         </TabControl>
 
     </Grid>
