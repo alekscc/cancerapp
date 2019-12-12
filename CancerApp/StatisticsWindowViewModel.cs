@@ -19,7 +19,7 @@ namespace CancerApp
         private PlotModel plotModel;
         private PlotModel plotModel2;
         private PlotModel plotModel3;
-
+        private PlotModel plotModel4;
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -57,6 +57,18 @@ namespace CancerApp
             set
             {
                 plotModel3 = value; OnPropertyChanged("PlotModel3");
+            }
+        }
+
+        public PlotModel PlotModel4
+        {
+            get
+            {
+                return plotModel4;
+            }
+            set
+            {
+                plotModel4 = value; OnPropertyChanged("PlotModel4");
             }
         }
 
@@ -116,7 +128,6 @@ namespace CancerApp
                     series.Points.Add(new DataPoint(LinearAxis.ToDouble(year), LinearAxis.ToDouble(DataList.Where(x => x.Year.Equals(year) && x.Age.Equals(age)).Select(x => x.Number).Sum())));
 
                 }
-
                 //plotModel2.Axes.Add(valueAxis);
                 //plotModel2.Axes.Add(yearAxis);
                 PlotModel2.Series.Add(series);
@@ -240,7 +251,7 @@ namespace CancerApp
 
             PlotModel3.Title = "Liczba zachorowań ze względu na płeć"; 
 
-            dynamic seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+            dynamic seriesP1 = new PieSeries {StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
 
             foreach (var gender in collectionGender)
             {
@@ -250,6 +261,45 @@ namespace CancerApp
             PlotModel3.Series.Add(seriesP1);
         }
 
+
+
+        private void SetupPlotModel4()
+        {
+            PlotModel4.Series.Clear();
+            PlotModel4.Axes.Clear();
+
+            PlotModel4.Title = "Ilość zachorowań ze wzgledu na płeć i wiek";
+            //PlotModel4.Background = OxyColors.Gray;
+
+            PlotModel4.LegendTitle = "Legenda";
+            PlotModel4.LegendOrientation = LegendOrientation.Horizontal;
+            PlotModel4.LegendPosition = LegendPosition.TopRight;
+            PlotModel4.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
+            PlotModel4.LegendBorder = OxyColors.Black;
+           
+            CategoryAxis xaxis = new CategoryAxis { Position = AxisPosition.Bottom, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            LinearAxis yaxis = new LinearAxis { Position = AxisPosition.Left, MajorGridlineStyle = LineStyle.Dot };
+
+            ColumnSeries s1 = new ColumnSeries { IsStacked = true};
+            ColumnSeries s2 = new ColumnSeries { IsStacked = true};
+
+
+            var collectionAge = DataList.Select(x => x.Age).Distinct().ToList();
+
+            foreach (var item in collectionAge)
+            {
+                xaxis.Labels.Add(item);
+
+                s1.Items.Add(new ColumnItem(DataList.Where(x => x.Age.Equals(item) && x.Gender.Equals("K")).Select(x => x.Number).Sum()));
+                s2.Items.Add(new ColumnItem(DataList.Where(x => x.Age.Equals(item) && x.Gender.Equals("M")).Select(x => x.Number).Sum()));
+            }
+
+            PlotModel4.Axes.Add(xaxis);
+            PlotModel4.Axes.Add(yaxis);
+            PlotModel4.Series.Add(s1);
+            PlotModel4.Series.Add(s2);
+        }
+
         public StatisticsWindowViewModel()
         {
             DataList = new List<Data>();
@@ -257,6 +307,7 @@ namespace CancerApp
             PlotModel = new PlotModel();
             PlotModel2 = new PlotModel();
             PlotModel3 = new PlotModel();
+            PlotModel4 = new PlotModel();
             //SetUpModel();
 
         }
@@ -267,6 +318,7 @@ namespace CancerApp
             SetupPlotModel();
             SetupPlotModel2();
             SetupPlotModel3();
+            SetupPlotModel4();
 
         }
     }

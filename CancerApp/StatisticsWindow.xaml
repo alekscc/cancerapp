@@ -8,7 +8,7 @@
         Title="StatisticsWindow" Height="450" Width="800" ResizeMode="NoResize"
         xmlns:oxy="http://oxyplot.org/wpf">
 
-    
+
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <TabItem Header="Dane">
@@ -28,7 +28,7 @@
             <TabItem Header="Wykres 1">
                 <Grid Background="#FFE5E5E5">
                     <oxy:PlotView x:Name="Plot1" Model="{Binding PlotModel}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
-                        
+
                     </oxy:PlotView>
                 </Grid>
             </TabItem>
@@ -40,13 +40,21 @@
                 </Grid>
             </TabItem>
 
-        <TabItem Header="Wykres 3">
-            <Grid Background="#FFE5E5E5">
-                <oxy:PlotView x:Name="Plot3" Model="{Binding PlotModel3}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+            <TabItem Header="Wykres 3">
+                <Grid Background="#FFE5E5E5">
+                    <oxy:PlotView x:Name="Plot3" Model="{Binding PlotModel3}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
 
-                </oxy:PlotView>
-            </Grid>
-        </TabItem>
+                    </oxy:PlotView>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Wykres 4">
+                <Grid Background="#FFE5E5E5">
+                    <oxy:PlotView x:Name="Plot4" Model="{Binding PlotModel4}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+
+                    </oxy:PlotView>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>
