@@ -101,7 +101,7 @@ namespace CancerApp
             PlotModel2.Axes.Clear();
 
 
-
+            PlotModel2.Title = "Ilość zachorowań ze względu na grupy wiekowe";
             PlotModel2.LegendTitle = "Legenda";
             PlotModel2.LegendOrientation = LegendOrientation.Horizontal;
             PlotModel2.LegendPosition = LegendPosition.TopRight;
@@ -142,7 +142,7 @@ namespace CancerApp
             PlotModel.Series.Clear();
             PlotModel.Axes.Clear();
 
-            
+            PlotModel.Title = "Ilość zachorowań";
 
             PlotModel.LegendTitle = "Legenda";
             PlotModel.LegendOrientation = LegendOrientation.Horizontal;
@@ -247,6 +247,7 @@ namespace CancerApp
             PlotModel3.Series.Clear();
             PlotModel3.Axes.Clear();
 
+
             var collectionGender = DataList.Select(x => x.Gender).Distinct().ToList();
 
             PlotModel3.Title = "Liczba zachorowań ze względu na płeć"; 
@@ -273,18 +274,18 @@ namespace CancerApp
 
             PlotModel4.LegendTitle = "Legenda";
             PlotModel4.LegendOrientation = LegendOrientation.Horizontal;
-            PlotModel4.LegendPosition = LegendPosition.TopRight;
+            PlotModel4.LegendPosition = LegendPosition.TopLeft;
             PlotModel4.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
             PlotModel4.LegendBorder = OxyColors.Black;
            
             CategoryAxis xaxis = new CategoryAxis { Position = AxisPosition.Bottom, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
             LinearAxis yaxis = new LinearAxis { Position = AxisPosition.Left, MajorGridlineStyle = LineStyle.Dot };
 
-            ColumnSeries s1 = new ColumnSeries { IsStacked = true};
-            ColumnSeries s2 = new ColumnSeries { IsStacked = true};
+            ColumnSeries s1 = new ColumnSeries { IsStacked = true,Title = "Kobiety"};
+            ColumnSeries s2 = new ColumnSeries { IsStacked = true, Title = "Mężczyźni"};
 
 
-            var collectionAge = DataList.Select(x => x.Age).Distinct().ToList();
+            var collectionAge = DataList.Select(x => x.Age).OrderBy(x=>x).Distinct().ToList();
 
             foreach (var item in collectionAge)
             {
