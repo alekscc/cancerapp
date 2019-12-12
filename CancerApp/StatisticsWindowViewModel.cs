@@ -18,6 +18,9 @@ namespace CancerApp
 
         private PlotModel plotModel;
         private PlotModel plotModel2;
+        private PlotModel plotModel3;
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -44,6 +47,19 @@ namespace CancerApp
                 plotModel2 = value; OnPropertyChanged("PlotModel2");
             }
         }
+
+        public PlotModel PlotModel3
+        {
+            get
+            {
+                return plotModel3;
+            }
+            set
+            {
+                plotModel3 = value; OnPropertyChanged("PlotModel3");
+            }
+        }
+
         protected virtual void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -152,13 +168,13 @@ namespace CancerApp
         }
         //private void SetupModel()
         //{
-           
-            
+
+
         //    // AxisPosition.Bottom, "Date", "dd/MM/yy HH:mm"
         //    //var dateAxis = new DateTimeAxis() { MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80 };
         //    //dateAxis.Title = "Rok";
 
-           
+
 
 
 
@@ -180,10 +196,10 @@ namespace CancerApp
         //    //    plotModel.Series.Add(lineSeries);
         //    //}
 
-          
 
-            
-           
+
+
+
 
 
 
@@ -213,12 +229,34 @@ namespace CancerApp
         //}
 
 
+
+        private void SetupPlotModel3()
+        {
+
+            PlotModel3.Series.Clear();
+            PlotModel3.Axes.Clear();
+
+            var collectionGender = DataList.Select(x => x.Gender).Distinct().ToList();
+
+            PlotModel3.Title = "Liczba zachorowań ze względu na płeć"; 
+
+            dynamic seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+
+            foreach (var gender in collectionGender)
+            {
+                seriesP1.Slices.Add(new PieSlice(gender.ToString(), DataList.Where(x => x.Gender.Equals(gender)).Select(x => x.Number).Sum()) { IsExploded = true });
+            }
+
+            PlotModel3.Series.Add(seriesP1);
+        }
+
         public StatisticsWindowViewModel()
         {
             DataList = new List<Data>();
 
             PlotModel = new PlotModel();
             PlotModel2 = new PlotModel();
+            PlotModel3 = new PlotModel();
             //SetUpModel();
 
         }
@@ -228,7 +266,8 @@ namespace CancerApp
 
             SetupPlotModel();
             SetupPlotModel2();
-           
+            SetupPlotModel3();
+
         }
     }
 }
