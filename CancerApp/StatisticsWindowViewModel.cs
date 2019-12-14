@@ -252,7 +252,8 @@ namespace CancerApp
 
             PlotModel3.Title = "Liczba zachorowań ze względu na płeć"; 
 
-            dynamic seriesP1 = new PieSeries {StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+            dynamic seriesP1 = new PieSeries {StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0};
+
 
             foreach (var gender in collectionGender)
             {
@@ -285,7 +286,9 @@ namespace CancerApp
             ColumnSeries s2 = new ColumnSeries { IsStacked = true, Title = "Mężczyźni"};
 
 
-            var collectionAge = DataList.Select(x => x.Age).OrderBy(x=>x).Distinct().ToList();
+            var collectionAge = DataList.Select(x => (x.Age.Length < 4 && x.Age.Last().ToString()!="+") ? "0"+x.Age : x.Age).OrderBy(x=>x).Distinct().ToList();
+
+            collectionAge = collectionAge.Select(x => (x.First().ToString().Equals("0")) ? x.Remove(0,1) : x ).ToList();
 
             foreach (var item in collectionAge)
             {

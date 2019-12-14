@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CancerApp
 {
-    public sealed class Singleton
+    public sealed class Global
     {
-        private static Singleton instance = null;
+        private static Global instance = null;
         private static readonly object padlock = new object();
         private static List<Data> listOfData;
 
-        Singleton()
+        Global()
         {
             listOfData = new List<Data>();
 
@@ -33,7 +33,7 @@ namespace CancerApp
                 return listOfData;
             }
         }
-        public static Singleton Instance
+        public static Global Instance
         {
             get
             {
@@ -41,7 +41,7 @@ namespace CancerApp
                 {
                     if (instance == null)
                     {
-                        instance = new Singleton();
+                        instance = new Global();
                     }
                     return instance;
                 }

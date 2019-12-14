@@ -72,7 +72,7 @@ namespace CancerApp
 
                 // listbox age ranges
 
-                string[] ages = Singleton.Instance.ListOfData.Select(x => x.Age).Distinct().ToArray();
+                string[] ages = Global.Instance.ListOfData.Select(x => x.Age).Distinct().ToArray();
 
                 CheckedAgeList.Clear();
 
@@ -82,7 +82,7 @@ namespace CancerApp
 
                 // listbox cancer type
 
-                string[] cancers = Singleton.Instance.ListOfData.Select(x => x.Cancer).Distinct().ToArray();
+                string[] cancers = Global.Instance.ListOfData.Select(x => x.Cancer).Distinct().ToArray();
 
                 CheckedCancerList.Clear();
 
@@ -91,7 +91,7 @@ namespace CancerApp
                 listBoxCancer.ItemsSource = CheckedCancerList;
 
                 // comboBox year
-                int[] years = Singleton.Instance.ListOfData.Select(x => x.Year).Distinct().ToArray();
+                int[] years = Global.Instance.ListOfData.Select(x => x.Year).Distinct().ToArray();
                 comboBoxYearFrom.ItemsSource = years;
                 comboBoxYearFrom.SelectedIndex = 0;
                 comboBoxYearTo.ItemsSource = years;
@@ -99,7 +99,7 @@ namespace CancerApp
 
                
                 // combobox gender
-                string[] genders = Singleton.Instance.ListOfData.Select(x => x.Gender).Distinct().ToArray();
+                string[] genders = Global.Instance.ListOfData.Select(x => x.Gender).Distinct().ToArray();
                 Array.Resize(ref genders, genders.Length + 1);
                 genders[genders.Length - 1] = defaultCondition;
                 comboBoxGender.ItemsSource = genders;
@@ -127,7 +127,7 @@ namespace CancerApp
             foreach (Path p in listPaths)
             {
                 string name = p.Name.Remove(0,3);
-                List<Data> subList = Singleton.Instance.ListOfData.Where(x => x.Region.Equals(Utils.MapRegionName(name)) 
+                List<Data> subList = Global.Instance.ListOfData.Where(x => x.Region.Equals(Utils.MapRegionName(name)) 
                                                                         && x.Year >= (int)comboBoxYearFrom.SelectedItem 
                                                                         && x.Year<= (int) comboBoxYearTo.SelectedItem
                                                                         && (x.Gender.Equals(comboBoxGender.SelectedItem) || comboBoxGender.SelectedItem.ToString()==defaultCondition)
@@ -235,7 +235,7 @@ namespace CancerApp
 
         private void btnLoadAllData_Click(object sender, RoutedEventArgs e)
         {
-            string[] regions = Singleton.Instance.ListOfData.Select((x) => x.Region).Distinct().ToArray();
+            string[] regions = Global.Instance.ListOfData.Select((x) => x.Region).Distinct().ToArray();
 
             StatisticsWindow wnd = Application.Current.Windows.OfType<StatisticsWindow>().FirstOrDefault();
 
