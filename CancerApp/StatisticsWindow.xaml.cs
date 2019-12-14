@@ -68,11 +68,9 @@ namespace CancerApp
             }
 
             viewModel.SetupModel(Global.Instance.ListOfData.Where(x => DataFilters.Select(y => y.Equals(x.Region)).OrderBy(z => z).LastOrDefault()).ToList());
-            //MessageBox.Show("Found record: " + dataList.Count + " data filter [0]:" + DataFilters[0]);
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = viewModel.DataList;
-            //DataContext = null;
-            //DataContext = viewModel;
+
             
           
         }

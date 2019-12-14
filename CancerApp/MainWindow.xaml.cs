@@ -72,7 +72,8 @@ namespace CancerApp
 
                 // listbox age ranges
 
-                string[] ages = Global.Instance.ListOfData.Select(x => x.Age).Distinct().ToArray();
+                string[] ages = Global.Instance.ListOfData.Select(x => x.Age)
+                    .Distinct().ToArray();
 
                 CheckedAgeList.Clear();
 
@@ -82,7 +83,8 @@ namespace CancerApp
 
                 // listbox cancer type
 
-                string[] cancers = Global.Instance.ListOfData.Select(x => x.Cancer).Distinct().ToArray();
+                string[] cancers = Global.Instance.ListOfData.Select(x => x.Cancer)
+                    .Distinct().ToArray();
 
                 CheckedCancerList.Clear();
 
@@ -91,7 +93,8 @@ namespace CancerApp
                 listBoxCancer.ItemsSource = CheckedCancerList;
 
                 // comboBox year
-                int[] years = Global.Instance.ListOfData.Select(x => x.Year).Distinct().ToArray();
+                int[] years = Global.Instance.ListOfData.Select(x => x.Year)
+                    .Distinct().ToArray();
                 comboBoxYearFrom.ItemsSource = years;
                 comboBoxYearFrom.SelectedIndex = 0;
                 comboBoxYearTo.ItemsSource = years;
@@ -99,7 +102,8 @@ namespace CancerApp
 
                
                 // combobox gender
-                string[] genders = Global.Instance.ListOfData.Select(x => x.Gender).Distinct().ToArray();
+                string[] genders = Global.Instance.ListOfData.Select(x => x.Gender)
+                    .Distinct().ToArray();
                 Array.Resize(ref genders, genders.Length + 1);
                 genders[genders.Length - 1] = defaultCondition;
                 comboBoxGender.ItemsSource = genders;
@@ -109,7 +113,6 @@ namespace CancerApp
           
                 isInitialised = true;
 
-                //MessageBox.Show("Number of cancer types:" + cancers.Length + " [0]=" + cancers[0]);
             }
             else
             {
@@ -154,10 +157,7 @@ namespace CancerApp
             }
 
         }
-        private float Lerp(float firstFloat, float secondFloat, float by)
-        {
-            return firstFloat * (1 - by) + secondFloat * by;
-        }
+
         private static void getLogicalChildCollection<T>(DependencyObject parent, List<T> logicalCollection) where T : DependencyObject
         {
             var children = LogicalTreeHelper.GetChildren(parent);

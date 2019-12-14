@@ -150,8 +150,10 @@ namespace CancerApp
             PlotModel.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
             PlotModel.LegendBorder = OxyColors.Black;
 
-            var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
-            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title = "Liczba zachorowań", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            var yearAxis = new LinearAxis() { Position = AxisPosition.Bottom, Title = "Rok",
+                MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
+            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, Title = "Liczba zachorowań",
+                MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
 
             var collectionYear = DataList.Select(x => x.Year).Distinct().ToList();
 
@@ -166,11 +168,12 @@ namespace CancerApp
 
             foreach (var item in collectionYear)
             {
-                lineSeriesYearNumber.Points.Add(new DataPoint(LinearAxis.ToDouble(item), DataList.Where(x => x.Year.Equals(item)).Select(x => x.Number).Sum()));
+                lineSeriesYearNumber.Points.Add(new DataPoint(LinearAxis.ToDouble(item), 
+                    DataList.Where(x => x.Year.Equals(item)).Select(x => x.Number).Sum()));
             }
 
             PlotModel.Series.Add(lineSeriesYearNumber);
-            //dateAxis.StringFormat = "dd/MM/yy HH:mm";
+
 
 
             PlotModel.Axes.Add(yearAxis);
