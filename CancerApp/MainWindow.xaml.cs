@@ -83,6 +83,19 @@ namespace CancerApp
 
                 // listbox cancer type
 
+                Dictionary<string, string> mapOfCancerT = Global.Instance.CancerTypesMap;
+                List<string> cancers = new List<string>();
+                foreach (var item in mapOfCancerT)
+                {
+                    cancers.Add(item.Key + " - " + item.Value);
+                }
+
+                CheckedCancerList.Clear();
+
+                CheckedCancerList.AddRange(GetCheckedListItems(cancers.ToArray()));
+
+                listBoxCancer.ItemsSource = CheckedCancerList;
+                /*
                 string[] cancers = Global.Instance.ListOfData.Select(x => x.Cancer)
                     .Distinct().ToArray();
 
@@ -90,7 +103,9 @@ namespace CancerApp
 
                 CheckedCancerList.AddRange(GetCheckedListItems(cancers));
 
-                listBoxCancer.ItemsSource = CheckedCancerList;
+                listBoxCancer.ItemsSource = CheckedCancerList;*/
+
+
 
                 // comboBox year
                 int[] years = Global.Instance.ListOfData.Select(x => x.Year)
@@ -134,7 +149,7 @@ namespace CancerApp
                                                                         && x.Year >= (int)comboBoxYearFrom.SelectedItem 
                                                                         && x.Year<= (int) comboBoxYearTo.SelectedItem
                                                                         && (x.Gender.Equals(comboBoxGender.SelectedItem) || comboBoxGender.SelectedItem.ToString()==defaultCondition)
-                                                                        && CheckedCancerList.Select((y) => y.IsChecked && x.Cancer.Equals(y.Name)).Contains(true)
+                                                                        && CheckedCancerList.Select((y) => y.IsChecked && x.Cancer.Equals(y.Name.Substring(0,3))).Contains(true)
                                                                         && CheckedAgeList.Select((y) => y.IsChecked && x.Age.Equals(y.Name)).Contains(true)).ToList();
 
                 int sum = subList.Sum(x => x.Number);

@@ -174,7 +174,7 @@
         <ComboBox x:Name="comboBoxYearFrom" HorizontalAlignment="Left" Margin="588,45,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxYearFrom_SelectionChanged"/>
         <Button x:Name="btnFilter" Content="Filtruj" HorizontalAlignment="Left" Margin="652,462,0,0" VerticalAlignment="Top" Width="150" Background="#FFDDDDDD" Click="btnFilter_Click"/>
         <ComboBox x:Name="comboBoxGender" HorizontalAlignment="Left" Margin="743,84,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxGender_SelectionChanged" RenderTransformOrigin="0.503,-1.576"/>
-        <ListBox x:Name="listBoxCancer" HorizontalAlignment="Left" Height="100" Margin="652,142,0,0" VerticalAlignment="Top" Width="150" >
+        <ListBox x:Name="listBoxCancer" HorizontalAlignment="Left" Height="100" Margin="588,142,0,0" VerticalAlignment="Top" Width="275" >
             <ListBox.ItemTemplate>
                 <HierarchicalDataTemplate>
                     <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
