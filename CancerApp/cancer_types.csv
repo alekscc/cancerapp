@@ -1,0 +1,96 @@
+C00;Warga
+C01;Nasada jêzyka
+C02;Inne i nieokreœlone czêœci jêzyka
+C03;Dzi¹s³o
+C04;Dno jamy ustnej
+C05;Podniebienie
+C06;Inne i nieokreœlone czêœci jamy ustnej
+C07;Œlinianka przyuszna
+C08;Inne i nieokreœlone du¿e gruczo³y œlinowe
+C09;Migda³ek
+C10;Czêœæ ustna gard³a
+C11;Czêœæ nosowa gard³a
+C12;Zachy³ek gruszkowaty
+C13;Czêœæ krtaniowa gard³a
+C14;Inne i bli¿ej nieokreœlone umiejscowienia w obrêbie wargi, jamy ustnej i gard³a
+C15;Prze³yk
+C16;¯o³¹dek
+C17;Jelito cienkie
+C18;Jelito grube
+C19;Zgiêcie esiczo-odbytnicze
+C20;Odbytnica
+C21;Odbyt i kana³ odbytu
+C22;W¹troba i przewody ¿ó³ciowe wewn¹trzw¹trobowe
+C23;Pêcherzyk ¿ó³ciowy
+C24;Inne i nieokreœlone czêœci dróg ¿ó³ciowych
+C25;Trzustka
+C26;Inne i niedok³adnie okreœlone narz¹dy trawienne
+C30;Jama nosowa i ucho œrodkowe
+C31;Zatoki przynosowe
+C32;Krtañ
+C33;Tchawica
+C34;Oskrzela i p³uco
+C37;Grasica
+C38;Serce, œródpiersie i op³ucna
+C39;Inne i niedok³adnie okreœlone czêœci uk³adu oddechowego i narz¹dów klatki piersiowej
+C40;Koœci i chrz¹stki stawowe koñczyn
+C41;Koœci i chrz¹stki stawowe o innym i nieokreœlonym umiejscowieniu
+C43;Czerniak skóry
+C44;Inne nowotwory z³oœliwe skóry
+C45;Miêdzyb³oniak
+C46;Miêsak Kaposiego
+C47;Nerwy obwodowe i autonomiczny uk³ad nerwowy
+C48;Przestrzeñ zaotrzewnowa i otrzewna
+C49;Tkanka ³¹czna i inne tkanki miêkkie
+C50;Sutek
+C51;Sromu
+C52;Pochwy
+C53;Szyjki macicy
+C54;Trzonu macicy
+C55;Innych i nieokreœlonych ¿eñskich narz¹dów p³ciowych
+C56;Jajnika
+C57;Innych i nieokreœlonych ¿eñskich narz¹dów p³ciowych
+C58;£o¿yska
+C60;Pr¹cie
+C61;Gruczo³ krokowy
+C62;J¹dro
+C63 ;Inne i nieokreœlone mêskie narz¹dy p³ciowe
+C64;Nerka za wyj¹tkiem miedniczki nerkowej
+C65;Miedniczka nerkowa
+C66;Moczowód
+C67;Pêcherz moczowy
+C68;Inne i nieokreœlone narz¹dy moczowe
+C69;Oko
+C70;Opony
+C71;Mózg
+C72;Rdzeñ krêgowy, nerwy czaszkowe i inne czêœci centralnego uk³adu nerwowego
+C73;Tarczyca
+C74;Nadnercza
+C75;Inne gruczo³y wydzielania wewnêtrznego i struktur pokrewnych
+C76;Umiejscowienia inne i niedok³adnie okreœlone
+C77;Wtórne i nieokreœlone nowotwory wêz³ów ch³onnych
+C78 ;Wtórne nowotwory z³oœliwe uk³adu oddechowego i trawiennego
+C79;Wtórny nowotwór z³oœliwy innych umiejscowieñ
+C80;Nowotwór z³oœliwy bez okreœlenia jego umiejscowienia
+C81;Choroba Hodgkina
+C82;Ch³oniak nieziarniczy guzkowy (grudkowy)
+C83;Ch³oniaki nieziarnicze rozlane
+C84;Obwodowy i skórny ch³oniak z komórek T
+C85;Inne i nieokreœlone postacie ch³oniaków nieziarniczych
+C88;Z³oœliwe choroby immunoproliferacyjne
+C90;Szpiczak mnogi i nowotwory z komórek plazmatycznych
+C91;Bia³aczka limfatyczna
+C92;Bia³aczka szpikowa
+C93;Bia³aczka monocytowa
+C94;Inne bia³aczki okreœlonego rodzaju
+C95;Bia³aczka z komórek nieokreœlonego rodzaju
+C96;Inny i nieokreœlony nowotwór z³oœliwy tkanki limfatycznej, krwiotwórczej i tkanek pokrewnych
+C97;Nowotwory z³oœliwe niezale¿nych (pierwotnych) mnogich umiejscowieñ
+D00;Rak jamy ustnej, prze³yku i ¿o³¹dka
+D01;Raki innych i nieokreœlonych czêœci narz¹dów trawiennych
+D02;Rak ucha œrodkowego i uk³adu oddechowego
+D03;Czerniak
+D04;Rak skóry 
+D05;Rak sutka
+D07;Rak innych i nieokreœlonych narz¹dów p³ciowych
+D09;Rak innych i nieokreœlonych umiejscowieñ
