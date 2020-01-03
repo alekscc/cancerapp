@@ -71,7 +71,10 @@ namespace CancerApp
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = viewModel.DataList;
 
-            
+            //int max = viewModel.DataList.Max(x => x.Number);
+            //string icd = viewModel.DataList.Where(x => x.Number == max).First().Cancer;
+
+            //MessageBox.Show("icd converted = " + Global.Instance.ConvertCancerType(icd));
           
         }
     }

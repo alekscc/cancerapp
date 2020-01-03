@@ -315,6 +315,10 @@ namespace CancerApp
             PlotModel2 = new PlotModel();
             PlotModel3 = new PlotModel();
             PlotModel4 = new PlotModel();
+
+
+
+            
             //SetUpModel();
 
         }
