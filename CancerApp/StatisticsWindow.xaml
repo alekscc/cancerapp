@@ -25,16 +25,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Dane2">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="dataGrid2" HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ICD10" Binding="{Binding Path=Cancer}" Width="*"/>
-                            <DataGridTextColumn Header="Liczba" Binding="{Binding Path=Number}" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </TabItem>
+           
             <TabItem Header="Wykres 1">
                 <Grid Background="#FFE5E5E5">
                     <oxy:PlotView x:Name="Plot1" Model="{Binding PlotModel}" Margin="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">

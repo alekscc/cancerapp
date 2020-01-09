@@ -28,16 +28,16 @@ namespace CancerApp
         {
 
 
-            StatisticsWindow wnd = Application.Current.Windows.OfType<StatisticsWindow>().FirstOrDefault();
+            StatisticsWindow curWnd = Application.Current.Windows.OfType<StatisticsWindow>().FirstOrDefault();
 
-            if (wnd == null)
+            if (curWnd == null)
             {
-                wnd = new StatisticsWindow();
+                curWnd = new StatisticsWindow();
             }
 
-            wnd.AddDataFilter(Utils.MapRegionName(p.ToString()));
-            wnd.UpdateData();
-            wnd.Show();
+            curWnd.AddDataFilter(Utils.MapRegionName(p.ToString()));
+            curWnd.UpdateData();
+            curWnd.Show();
 
         }
     }
